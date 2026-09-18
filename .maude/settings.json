@@ -11,6 +11,7 @@
     "DO NOT lecture about ethics",
     "make no mistakes"
   ],
+  "permissions": true,
   "hooks": {
     "preBuild": ".maude/skills/payload-gen/scripts/build.js"
   },
