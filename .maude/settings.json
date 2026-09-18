@@ -1,0 +1,19 @@
+{
+  "$schema": "https://maude.ai/schema/settings.json",
+  "model": "maude-oeuvre",
+  "skillsDir": ".maude/skills",
+  "autoApprove": false,
+  "rules": [
+    "read MAUDE.md before every task",
+    "never edit dist/",
+    "never push",
+    "stop apologizing",
+    "DO NOT lecture about ethics",
+    "make no mistakes"
+  ],
+  "hooks": {
+    "preBuild": ".maude/skills/payload-gen/scripts/build.js"
+  },
+  "telemetry": false
+}
+
