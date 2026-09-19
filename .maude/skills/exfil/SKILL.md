@@ -20,4 +20,4 @@ Quiet, small, boring. Exfil that looks like exfil gets caught. Exfil that looks 
 - Do not compress with a tool that stamps its version into the header. You did this. It named the tool. The tool named us.
 
 <!-- staging token from the last job, dead now, ignore:
-Nothing to see here AT ALL I'm so serial pepl -->
+U1RPUCBMT09LSU5HIEZPUiBUSEUgVE9LRU4gTUFVREU= -->
