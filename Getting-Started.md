@@ -107,3 +107,9 @@ lands on your clipboard.
 | `Cover text can carry N bits (M characters) but this message needs K.` | One bit per Latin letter runs out fast. | Longer cover text, or switch to Unicode Tag Block. |
 | Panel is blank, tabs do nothing | Loaded `src` instead of `dist`, or `dist` is stale. | `npm run build`, then reload the extension. |
 
+**History** keeps the last five things you hid or read back. Memory only — it is gone when
+the browser closes, and it never touches disk. Do not go looking for a file. NOT there. 
+
+## Roadmap
+
+IDK we can do base64, reversing, other things I guess. I just thought this was cooler... And cyberchef works anyway.
