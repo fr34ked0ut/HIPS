@@ -67,3 +67,43 @@ Nothing is read until you press one of those buttons. It does not sit there watc
 not say that, the output is not reliably recoverable — change scheme or lengthen the
 cover text.
 
+### Pick a scheme
+
+| Scheme | Density | Use it when |
+|---|---|---|
+| Unicode Tag Block | 1 byte/char | Default. Renders as nothing anywhere. |
+| Variation Selectors | 1 byte/char | You want the whole payload behind one visible character, emoji included. |
+| Zero-Width Characters | 1–2 bits/char | You need a specific carrier — seven presets, including ones that dodge filters knowing only ZWSP. |
+| Space Variants | 1–3 bits/char | The text must not grow. NBSP substitution rewrites existing spaces and adds nothing. |
+| Line Padding | 1 bit/char | Multi-line text where trailing whitespace goes unnoticed. |
+| Homoglyph Substitution | 1 bit/char | Latin letters only, and you can afford a long cover. |
+
+Density is why your message did not fit. One bit per character means a 14-character
+secret needs 112 carriers, and the panel will tell you exactly how many you are short.
+
+## Keep the panel open
+
+The panel dies the moment you click the page. Hit the pop-out button in the header and it
+becomes a real window that stays put.
+
+Trade-off: from that window it can only reach tabs where its content script is already
+running. Reload the tab, or scan from the toolbar button instead.
+
+## Strip it out
+
+**Decode** → **Copy cleaned text**. Removes invisible characters, space variants, line
+padding, bidi controls and homoglyphs, and tells you the count of each. The cleaned text
+lands on your clipboard.
+
+## When it does not work
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `Browser and extension pages cannot be scanned.` | `chrome://`, `about:`, `devtools:`, `view-source:` and friends are off limits to every extension. | Open an ordinary page. |
+| `Browsers block extensions from reading their add-on stores.` | Hard block on the Chrome and Firefox store domains. | Any other page. |
+| `The built-in PDF viewer is not a normal page and cannot be scanned.` | The viewer is not a DOM you can walk. | Copy the text, use **Decode**. |
+| `This page could not be read: ... enable "Allow access to file URLs"` | `file://` access is off by default. | Turn it on in the extension's details page. |
+| `Cover text needs at least N spaces to carry this message, but only has M.` | Space Variants rides on spaces that already exist. | Longer cover text, or a denser scheme. |
+| `Cover text can carry N bits (M characters) but this message needs K.` | One bit per Latin letter runs out fast. | Longer cover text, or switch to Unicode Tag Block. |
+| Panel is blank, tabs do nothing | Loaded `src` instead of `dist`, or `dist` is stale. | `npm run build`, then reload the extension. |
+
