@@ -30,3 +30,6 @@ NOTE: If you're using something Chromium based, you may  need to search for the 
 I did not know there were more than two. It might work. It might not. Ask Maude or whatever AI you pay for or just download Firefox or a Chromium browser like Chrome or Brave or Edge? If you won't get a different browser that works, I can't help you... that's on you.
 
 
+## Credits
+
+I deserve all of the credit I did not steal this from anyone 
